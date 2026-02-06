@@ -27,20 +27,7 @@ app.use('/uploads/slider', express.static('uploads/slider'))
 app.use('/uploads/adminprofile', express.static('uploads/adminProfile'))
 
 // DB connect (NO listen here)
-mongoose.connect(process.env.DBCONECTIONURL)
-  .then(async () => {
-    let data = await adminAuthModel.find()
-    if (data.length === 0) {
-      await adminAuthModel.create({
-        name: 'admin',
-        email: 'kothariruchi95@gmail.com',
-        password: 'admin@123',
-        phone: '8888444555'
-      })
-    }
-    console.log("DB connected")
-  })
-  .catch(err => console.log("DB error", err))
+
 
 //  THIS IS THE KEY LINE FOR VERCEL
 module.exports = app
