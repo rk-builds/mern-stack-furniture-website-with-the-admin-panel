@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "Build": "npm install"
+  "Build": "npm install",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
