@@ -1,10 +1,11 @@
 import axios from "axios";
 
 let apiBaseUrl = process.env.NEXT_PUBLIC_APIBASEURL
+let adminUrl= process.env.NEXT_PUBLIC_ADMINURL
 
 export const getProducts = async (filters = {}) => {
   const res = await axios.post(
-    'http://localhost:8000/admin/product/user-product-view',
+    `${adminUrl}product/user-product-view`,
     {
       subCat: filters.subCat,
       minPrice: filters.minPrice,
@@ -28,7 +29,7 @@ let getSingleProduct=(slug)=>{
 
 // Parent categories
   const fetchParents = async () => {
-    const res = await axios.get(`http://localhost:8000/admin/product/parent-category`)
+    const res = await axios.get(`${adminUrl}product/parent-category`)
     .then((res)=> res.data)
     .then((finalRes)=>finalRes.CatParentRes)
     // console.log(res)

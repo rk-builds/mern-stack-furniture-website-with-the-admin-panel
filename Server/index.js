@@ -1,5 +1,6 @@
 let express = require("express")
 require("dotenv").config()
+const PORT = process.env.PORT || 8000;
 let app = express()
 let cors = require("cors")
 let mongoose = require("mongoose")
@@ -10,8 +11,12 @@ const { webRoutes } = require("./App/Routes/website/webRouts")
 app.use(cors())
 app.use(express.json())
 
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully ");
+});
+
 //web:
-app.use("/web",webRoutes)
+app.use("/web", webRoutes)
 //admin:
 
 app.use("/admin", adminRoutes)
@@ -27,7 +32,11 @@ app.use('/uploads/adminprofile', express.static('uploads/adminProfile'))
 mongoose.connect(process.env.DBCONECTIONURL)
   .then(async (res) => {
 
-    app.listen(process.env.PORT)
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+
+    // app.listen(process.env.PORT)
 
     let data = await adminAuthModel.find()
     if (data.length == 0) {
