@@ -27,11 +27,18 @@ app.use('/uploads/test', express.static('uploads/test'));
 app.use('/uploads/slider', express.static('uploads/slider'));
 app.use('/uploads/adminprofile', express.static('uploads/adminProfile'));
 
+app.get("/", (req , res)=>{
+  res.send({
+    status:true ,
+    message : "apin started"
+  })
+})
+
 // database + server start
 mongoose.connect(process.env.DBCONECTIONURL)
   .then(async () => {
 
-    // ✅ Render NEEDS this
+    // Render
     const PORT = process.env.PORT || 8000;
     app.listen(PORT, () => {
       console.log("Server running on port", PORT);
