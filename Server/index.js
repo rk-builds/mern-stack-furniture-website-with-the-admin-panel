@@ -7,7 +7,7 @@ const { adminRoutes } = require("./App/Routes/admin/adminRoutes");
 const { adminAuthModel } = require("./App/models/adminAuthModel");
 const { webRoutes } = require("./App/Routes/website/webRouts");
 const { testRoutes } = require("./App/Routes/admin/testimonialRoutes");
-const testrouter = require("./App/Routes/testcheckRoutes");
+
 
 const app = express();
 
@@ -40,20 +40,7 @@ app.get("/", (req , res)=>{
   })
 })
  
-app.get("/test-db", async (req, res) => {
-  try {
-    let allProducts = await productModel.find({});
-    console.log("✅ Total Products:", allProducts.length);
-    res.json({ 
-      status: 1, 
-      count: allProducts.length,
-      data: allProducts 
-    });
-  } catch (err) {
-    console.log("❌ Error:", err.message);
-    res.status(500).json({ status: 0, error: err.message });
-  }
-});
+
 
 // database + server start
 mongoose.connect(process.env.DBCONECTIONURL)
