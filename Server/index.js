@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const { adminRoutes } = require("./App/Routes/admin/adminRoutes");
 const { adminAuthModel } = require("./App/models/adminAuthModel");
 const { webRoutes } = require("./App/Routes/website/webRouts");
+const { testRoutes } = require("./App/Routes/admin/testimonialRoutes");
+const testrouter = require("./App/Routes/testcheckRoutes");
 
 const app = express();
 
@@ -16,6 +18,10 @@ app.use(express.json());
 // routes
 app.use("/web", webRoutes);
 app.use("/admin", adminRoutes);
+
+
+app.use("/api", testrouter); // Use this route
+
 
 // static folders
 app.use('/uploads/category', express.static('uploads/category'));
