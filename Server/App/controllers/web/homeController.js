@@ -93,4 +93,6 @@ let getCustomerReview = async (req, res) => {
 
 
 
+
+
 module.exports= {getHomeCategory, getProductByCategory, getSlider, getProductsByType,getBestSalingProduct,getCustomerReview}

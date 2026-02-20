@@ -20,7 +20,7 @@ app.use("/web", webRoutes);
 app.use("/admin", adminRoutes);
 
 
-app.use("/api", testrouter); // Use this route
+
 
 
 // static folders
@@ -39,6 +39,21 @@ app.get("/", (req , res)=>{
     message : "apin started"
   })
 })
+ 
+app.get("/test-db", async (req, res) => {
+  try {
+    let allProducts = await productModel.find({});
+    console.log("✅ Total Products:", allProducts.length);
+    res.json({ 
+      status: 1, 
+      count: allProducts.length,
+      data: allProducts 
+    });
+  } catch (err) {
+    console.log("❌ Error:", err.message);
+    res.status(500).json({ status: 0, error: err.message });
+  }
+});
 
 // database + server start
 mongoose.connect(process.env.DBCONECTIONURL)
