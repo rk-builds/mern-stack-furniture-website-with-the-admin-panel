@@ -1,6 +1,6 @@
 'use client'
 
-import { fetchCartData, updateQtyLocal } from '@/app/redux/slice/cartSlice';
+import { fetchCartData, setDiscount, updateQtyLocal, clearDiscount } from '@/app/redux/slice/cartSlice';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useMemo, useState } from 'react'
@@ -43,6 +43,8 @@ export default function CartContent() {
 
     let { cartItems, imgPath } = useSelector((state) => state.myCart)
 
+
+
     if (!Array.isArray(cartItems)) {
         return <p className="text-center py-10">Loading cart...</p>;
     }
@@ -58,8 +60,8 @@ export default function CartContent() {
     }, [cartItems]);
 
 
-    
-    
+
+
 
     console.log(cartItems);
 
@@ -142,7 +144,18 @@ export default function CartContent() {
         return 0;
     }, [subtotal, appliedCoupon]);
 
-  
+    useEffect(() => {
+        dispatch(setDiscount(discount));
+    }, [discount, dispatch]);
+
+
+    useEffect(() => {
+        if (cartItems.length === 0) {
+            dispatch(clearDiscount());
+            setAppliedCoupon(null);
+        }
+    }, [cartItems, dispatch]);
+
     const total = subtotal - discount;
 
 
