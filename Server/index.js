@@ -40,6 +40,17 @@ app.get("/", (req , res)=>{
   })
 })
  
+app.get("/debug-all", async (req, res) => {
+  const collections = await mongoose.connection.db.listCollections().toArray();
+  const sliders = await mongoose.connection.db.collection("sliders").find({}).toArray();
+  
+  res.json({
+    dbName: mongoose.connection.name,
+    collections,
+    slidersCount: sliders.length,
+    sliders
+  });
+});
 
 
 // database + server start
