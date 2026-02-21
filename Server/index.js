@@ -40,16 +40,35 @@ app.get("/", (req , res)=>{
   })
 })
  
-app.get("/debug-all", async (req, res) => {
-  const collections = await mongoose.connection.db.listCollections().toArray();
-  const sliders = await mongoose.connection.db.collection("sliders").find({}).toArray();
-  
-  res.json({
-    dbName: mongoose.connection.name,
-    collections,
-    slidersCount: sliders.length,
-    sliders
-  });
+
+app.get("/debug-db", async (req, res) => {
+  try {
+    if (mongoose.connection.readyState !== 1) {
+      return res.json({
+        message: "Database not connected",
+        readyState: mongoose.connection.readyState
+      });
+    }
+
+    const dbName = mongoose.connection.name;
+    const host = mongoose.connection.host;
+
+    const collections = await mongoose.connection.db
+      .listCollections()
+      .toArray();
+
+    res.json({
+      databaseName: dbName,
+      host: host,
+      collections: collections.map(c => c.name)
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Debug Error",
+      error: error.message
+    });
+  }
 });
 
 
