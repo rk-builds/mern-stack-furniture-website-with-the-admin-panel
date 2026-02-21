@@ -3,7 +3,7 @@
 import { fetchCartData, setDiscount, updateQtyLocal, clearDiscount } from '@/app/redux/slice/cartSlice';
 import axios from 'axios';
 import Link from 'next/link';
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { TbTrashXFilled } from "react-icons/tb";
 import { useDispatch, useSelector } from 'react-redux';
 
