@@ -59,12 +59,11 @@ let getProductsByType = async (req, res) => {
     console.log(filter)
     console.log("Query:", req.query)
 
-let datas = await productModel.find({})
-console.log("Data Count:", datas.length)
 
-    // let datas = await productModel
-    //   .find(filter)
-    //   .populate("parentCategory", "categoryName") 
+
+    let datas = await productModel
+      .find(filter)
+      .populate("parentCategory", "categoryName") 
 
     res.send({
       status: 1,
