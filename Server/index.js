@@ -12,7 +12,11 @@ const { webRoutes } = require("./App/Routes/website/webRouts");
 const app = express();
 
 // middlewares
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3000", "https://mern-stack-furniture-website-with-t.vercel.app"],
+  credentials: true
+}))
 app.use(express.json());
 
 // routes
