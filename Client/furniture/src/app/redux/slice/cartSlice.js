@@ -11,7 +11,7 @@ export const fetchCartData = createAsyncThunk( //API Fetch
       if (!token) throw new Error('No auth token found in cookies');
 
       const response = await axios.post(
-        'http://localhost:8000/web/cart/cart-data',
+        `${process.env.NEXT_PUBLIC_APIBASEURL}cart/cart-data`,
         {},
         {
           headers: {
