@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const { adminRoutes } = require("./App/Routes/admin/adminRoutes");
 const { adminAuthModel } = require("./App/models/adminAuthModel");
 const { webRoutes } = require("./App/Routes/website/webRouts");
-const { testRoutes } = require("./App/Routes/admin/testimonialRoutes");
+
 
 
 const app = express();
@@ -71,6 +71,7 @@ app.get("/debug-db", async (req, res) => {
   }
 });
 
+console.log("Connected DB:", mongoose.connection.name);
 
 // database + server start
 mongoose.connect(process.env.DBCONECTIONURL)
