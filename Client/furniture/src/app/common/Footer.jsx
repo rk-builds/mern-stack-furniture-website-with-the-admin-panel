@@ -51,7 +51,7 @@ export default function Footer() {
                     <li><Link href={'/my-dashboard'} className="text-gray-500 hover:text-blue-600 text-[15px]">My Dashboard</Link></li>
                     <li><Link href={'#'} className="text-gray-500 hover:text-blue-600 text-[15px]">Wishlist</Link></li>
                     <li><Link href={'/cart'} className="text-gray-500 hover:text-blue-600 text-[15px]">Cart</Link></li>
-                    <li><Link href={'/chekout'} className="text-gray-500 hover:text-blue-600 text-[15px]">Checkout</Link></li>
+                    <li><Link href={'/checkout'} className="text-gray-500 hover:text-blue-600 text-[15px]">Checkout</Link></li>
                   </ul>
                 </div>
               </div>

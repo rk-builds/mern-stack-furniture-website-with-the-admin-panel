@@ -46,8 +46,9 @@ export default function CheckContent() {
 
   
 
-  // let finalAmount = orderAmount - discount;
+  let finalAmount = orderAmount - discount;
 
+  console.log(discount,finalAmount)
 
   let totQty = cartData.reduce((t, obj) => (t += obj.productQty), 0);
 
@@ -92,7 +93,7 @@ export default function CheckContent() {
   return (
     <>
 
-      <div className="max-w-[1170px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-10">
+      <div className="max-w-[1170px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-10 px-5">
         <form id="checkout_address" autoComplete="off" onSubmit={saveOrder}>
           {/* Billing Details */}
           <div>
