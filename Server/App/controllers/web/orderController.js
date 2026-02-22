@@ -1,9 +1,9 @@
 const orderModel = require("../../models/orderModel");
-// const Razorpay = require('razorpay');
-// var instance = new Razorpay({
-//    key_id: 'rzp_test_WAft3lA6ly3OBc',
-//    key_secret: '68E17CNWY8SemCvZ6ylOkuOY',
-//  });
+const Razorpay = require('razorpay');
+var instance = new Razorpay({
+   key_id: process.env.KEY,
+   key_secret: process.env.SECKEY,
+ });
 
 let saveOrder=async (req,res)=>{
    let orderObj={...req.body}

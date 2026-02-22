@@ -165,7 +165,7 @@ let userGoogleLogin = async (req, res) => {
         let token = jwt.sign({ id: insRes._id }, process.env.TOKENKEY);
         obj = {
             status: 1,
-            msg: "Added Successfully..!",
+            msg: "login Successfully..!",
             data: insRes,
             token
         }
