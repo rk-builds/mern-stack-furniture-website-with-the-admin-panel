@@ -14,7 +14,9 @@ const app = express();
 // middlewares
 // app.use(cors());
 app.use(cors({
-  origin: ["http://localhost:3000", "https://mern-stack-furniture-website-with-t.vercel.app"],
+  origin: ["http://localhost:3000", "https://mern-stack-furniture-website-with-t.vercel.app",
+    "https://mern-stack-furniture-website-with-the-admin-panel-dlxoc9bwf.vercel.app/"
+  ],
   credentials: true
 }))
 app.use(express.json());
