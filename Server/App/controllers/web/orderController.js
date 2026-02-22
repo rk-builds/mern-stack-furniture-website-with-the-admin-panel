@@ -31,7 +31,7 @@ let saveOrder=async (req,res)=>{
 
         //razor Order Create
          let orderObj={
-            "amount": orData.orderAmount*100,
+            "amount": orData.finalAmount*100,
             "currency": "INR",
             "receipt": orderId
         }
