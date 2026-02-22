@@ -67,36 +67,36 @@ export let cartSlice = createSlice(
         if (item) {
           item.productQty = productQty;
         }
-      }
+      },
+
+
+      setDiscount: (state, action) => {
+        state.discount = action.payload;
+      },
+
+      clearDiscount: (state) => {
+        state.discount = 0;
+      },
     },
 
-    setDiscount: (state, action) => {
-      state.discount = action.payload;
-    },
-
-    clearDiscount: (state) => {
-      state.discount = 0;
-    },
-  
-    
     extraReducers: (builder) => {
-  builder
-    .addCase(fetchCartData.pending, (state) => {
-      state.loading = true;
-      state.error = null;
-    })
-    .addCase(fetchCartData.fulfilled, (state, action) => {
-      state.loading = false;
-      state.cartItems = action.payload.cartItems;
-      state.imgPath = action.payload.imgPath;
-    })
-    .addCase(fetchCartData.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    });
-},
+      builder
+        .addCase(fetchCartData.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(fetchCartData.fulfilled, (state, action) => {
+          state.loading = false;
+          state.cartItems = action.payload.cartItems;
+          state.imgPath = action.payload.imgPath;
+        })
+        .addCase(fetchCartData.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        });
+    },
   }
 )
 
 export default cartSlice.reducer;
-export let { addToCart, removeFromCart, updateQtyLocal,setDiscount,clearDiscount} = cartSlice.actions;
+export let { addToCart, removeFromCart, updateQtyLocal, setDiscount, clearDiscount } = cartSlice.actions;
