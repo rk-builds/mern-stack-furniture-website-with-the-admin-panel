@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { app } from '@/config/fireBaseConfig'
+import { toast, ToastContainer } from 'react-toastify'
 
 
 
@@ -99,6 +100,8 @@ export default function Login() {
               username: userName
             }
             dispatch(userData({ user: userObj, token: finalData.token }))
+
+            toast.success('login successfully done..')
           })
       }).catch((error) => {
         // Handle Errors here.
@@ -109,12 +112,14 @@ export default function Login() {
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
+        toast.error('errorMessage')
       });
 
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f5f3ef] px-4">
+     <ToastContainer/>
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
 
         {/* Heading */}

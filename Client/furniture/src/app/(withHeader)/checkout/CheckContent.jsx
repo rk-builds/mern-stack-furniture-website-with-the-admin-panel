@@ -64,6 +64,7 @@ export default function CheckContent() {
     console.log(cartObj);
     console.log(paymenttype);
     console.log(orderAmount);
+    console.log(finalAmount);
     console.log(totQty);
 
     let orderObj = {
@@ -71,6 +72,8 @@ export default function CheckContent() {
       shippingAddress: shippingAdress,
       paymentMethod: paymenttype,
       orderAmount: orderAmount,
+      discount:discount,
+      finalAmount:finalAmount,
       orderQty: totQty,
     };
     axios
