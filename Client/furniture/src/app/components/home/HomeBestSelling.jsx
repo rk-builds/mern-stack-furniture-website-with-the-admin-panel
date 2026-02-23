@@ -65,6 +65,7 @@ export default function HomeBestSelling({ BestSellingData }) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          dots: false,
         }
       },
       {
@@ -72,6 +73,7 @@ export default function HomeBestSelling({ BestSellingData }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: false,
         }
       }
     ]
@@ -80,11 +82,11 @@ export default function HomeBestSelling({ BestSellingData }) {
 
 
     <section className="max-w-[1170px] mx-auto py-[50px] px-4">
-      <div className="relative py-10">
+      <div className="relative py-5 pb-14">
         <h2 className="text-[22px] font-semibold mb-6 text-center">
           Best Selling Products
         </h2>
-
+       
         <Slider {...settings}>
           {Bestproducts.map((item, index) => (
             <div key={index} className="px-2">
