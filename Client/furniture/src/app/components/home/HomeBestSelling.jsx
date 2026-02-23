@@ -50,7 +50,7 @@ function PrevArrow({ onClick }) {
     infinite: false,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     initialSlide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -59,7 +59,7 @@ function PrevArrow({ onClick }) {
         breakpoint: 924,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: true
         }

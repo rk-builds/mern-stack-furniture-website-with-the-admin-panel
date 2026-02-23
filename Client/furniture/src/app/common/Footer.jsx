@@ -90,7 +90,7 @@ export default function Footer() {
                         <a>Cabinets and Sideboard</a>
                       </div>
                       <div >
-                        <h3 className='text-[14px] text-blue-800 py-3'><a href="https://wscubetech.co/Assignments/furniture/product-details/louise-cabinet" height="100px" width="100px">Louise Cabinet</a></h3>
+                        <h3 className='text-[14px] text-blue-800 py-3'><a href="#" height="100px" width="100px">Louise Cabinet</a></h3>
                       </div>
                       <div className="py-1">
                         <span className="text-[11px] line-through">Rs. 28,000</span>

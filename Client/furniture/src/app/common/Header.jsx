@@ -133,7 +133,6 @@ export default function Header() {
                                                 <ul className="space-y-4">
                                                     <h3 className='font-bold'>Swing Jhula</h3>
                                                     <li><a href="#wooden-jhula" className="text-gray-500 hover:text-blue-600 text-[12px]" >Wooden Jhula</a></li>
-
                                                 </ul>
                                             </div>
                                         </div>
