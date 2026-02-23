@@ -10,39 +10,39 @@ import "slick-carousel/slick/slick-theme.css";
 export default function HomeBestSelling({ BestSellingData }) {
 
   const [Bestproducts, setBestProducts] = useState(BestSellingData.datas || []);
-  const imgPath =BestSellingData.imgPath;
+  const imgPath = BestSellingData.imgPath;
 
   function NextArrow({ onClick }) {
-  return (
-    <div
-      onClick={onClick}
-      className="absolute top-[45%] -right-6 z-10
+    return (
+      <div
+        onClick={onClick}
+        className="absolute top-[45%] -right-6 z-10
       w-10 h-10 flex items-center justify-center
       rounded-full bg-black text-white shadow-md cursor-pointer
       hover:bg-[#C09578] hover:text-white transition"
-    >
-      ❯
-    </div>
-  );
-}
+      >
+        ❯
+      </div>
+    );
+  }
 
-// console.log('bestsale=>',BestSellingData)
-// console.log('bestimg=>',imgPath);
+  // console.log('bestsale=>',BestSellingData)
+  // console.log('bestimg=>',imgPath);
 
 
-function PrevArrow({ onClick }) {
-  return (
-    <div
-      onClick={onClick}
-      className="absolute top-[45%] -left-6 z-10
+  function PrevArrow({ onClick }) {
+    return (
+      <div
+        onClick={onClick}
+        className="absolute top-[45%] -left-6 z-10
       w-10 h-10 flex items-center justify-center
       rounded-full bg-black text-white shadow-md cursor-pointer
       hover:bg-[#C09578] hover:text-white transition"
-    >
-      ❮
-    </div>
-  );
-}
+      >
+        ❮
+      </div>
+    );
+  }
 
 
   var settings = {
@@ -51,54 +51,48 @@ function PrevArrow({ onClick }) {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    initialSlide: 0,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    arrows: true,
     responsive: [
       {
-        breakpoint: 924,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
+          slidesToScroll: 1,
         }
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
         }
       }
     ]
   };
   return (
-  
 
-<section className='max-w-[1170px] mx-auto py-[50px]'>
 
-   <div className="relative px-8 py-10">
-      <h2 className="text-[22px] font-semibold mb-6 text-center">
-        Best Selling Products
-      </h2>
+    <section className="max-w-[1170px] mx-auto py-[50px] px-4">
+      <div className="relative py-10">
+        <h2 className="text-[22px] font-semibold mb-6 text-center">
+          Best Selling Products
+        </h2>
 
-      <Slider {...settings}>
-        {Bestproducts.map((item,index) => (
-          <div  className="px-2">
-            <ProductCard data={item} imgPath={imgPath} key={index} />
-          </div>
-        ))}
-      </Slider>
-    </div>
-  </section>
+        <Slider {...settings}>
+          {Bestproducts.map((item, index) => (
+            <div key={index} className="px-2">
+              <ProductCard data={item} imgPath={imgPath} />
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </section>
   )
 }
