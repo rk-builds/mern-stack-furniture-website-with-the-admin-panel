@@ -71,7 +71,7 @@ export default function Header() {
                             <div id="mega-menu" className="p-2 border-b border-[#E1E3E1]">
                                 <ul className="mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
                                     <li>
-                                        <a href="#" className="block py-2 px-3 text-[13px] text-[#C09578] border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-#C09578 md:p-0 uppercase " aria-current="page">Home</a>
+                                        <Link href={'/'} className="block py-2 px-3 text-[13px] text-[#C09578] border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-#C09578 md:p-0 uppercase " aria-current="page">Home</Link>
                                     </li>
                                     <li>
                                         <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown" onClick={() => setActiveSubMenu(activeSubMenu === 1 ? 0 : 1)} className="flex items-center justify-between w-full py-2 px-3 text-[13px] text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-[#C09578] md:p-0 uppercase">
@@ -91,18 +91,18 @@ export default function Header() {
                                             <div className="p-4">
                                                 <ul className="space-y-4">
                                                     <h3 className='font-bold'>Living Storage</h3>
-                                                    <li><a href="#prayer-units" className="text-gray-500 hover:text-blue-600 text-[12px]">Prayer Units</a></li>
-                                                    <li><a href="#display-unit" className="text-gray-500 hover:text-blue-600 text-[12px]">Display Unit</a></li>
-                                                    <li><a href="#shoe-racks" className="text-gray-500 hover:text-blue-600 text-[12px]">Shoe Racks</a></li>
-                                                    <li><a href="#chest-of-drawers" className="text-gray-500 hover:text-blue-600 text-[12px]">Chest Of Drawers</a></li>
-                                                    <li><a href="#cabinets-and-sideboard" className="text-gray-500 hover:text-blue-600 text-[12px]">Cabinets and Sideboard</a></li>
-                                                    <li><a href="#bookshelves" className="text-gray-500 hover:text-blue-600 text-[12px]">Bookshelves</a></li>
-                                                    <li><a href="#tv-units" className="text-gray-500 hover:text-blue-600 text-[12px]">Tv Units</a></li>
+                                                    <li><Link href={'/products'} className="text-gray-500 hover:text-blue-600 text-[12px]">Prayer Units</Link></li>
+                                                    <li><Link href={'/products'} className="text-gray-500 hover:text-blue-600 text-[12px]">Display Unit</Link></li>
+                                                    <li><Link href={'/products'} className="text-gray-500 hover:text-blue-600 text-[12px]">Shoe Racks</Link></li>
+                                                    <li><Link href={'/products'} className="text-gray-500 hover:text-blue-600 text-[12px]">Chest Of Drawers</Link></li>
+                                                    <li><Link href={'/products'} className="text-gray-500 hover:text-blue-600 text-[12px]">Cabinets and Sideboard</Link></li>
+                                                    <li><Link href={'/products'} className="text-gray-500 hover:text-blue-600 text-[12px]">Bookshelves</Link></li>
+                                                    <li><Link href={'/products'} className="text-gray-500 hover:text-blue-600 text-[12px]">Tv Units</Link></li>
                                                 </ul>
                                             </div>
                                             <div className="p-4">
                                                 <ul className="space-y-4"><h3 className='font-bold'>Mirror</h3>
-                                                    <li><a href="#wooden-mirrors" className="text-gray-500 hover:text-blue-600 text-[12px]" >Wooden Mirrors</a></li>
+                                                    <li><Link href={'/products'} className="text-gray-500 hover:text-blue-600 text-[12px]" >Wooden Mirrors</Link></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -145,9 +145,9 @@ export default function Header() {
                                             <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
                                                 <ul className="space-y-4" aria-labelledby="mega-menu-dropdown-button">
                                                     <li><Link href={'/about-us'} className="text-gray-500 hover:text-blue-600 text-[12px]">About Us</Link></li>
-                                                    <li><a href='#' className="text-gray-500 hover:text-blue-600 text-[12px]">Cart</a></li>
-                                                    <li><a href='#' className="text-gray-500 hover:text-blue-600 text-[12px]">Checkout</a></li>
-                                                    <li><a href='#' className="text-gray-500 hover:text-blue-600 text-[12px]">Frequently Questions</a></li>
+                                                    <li><Link href={'/cart'} className="text-gray-500 hover:text-blue-600 text-[12px]">Cart</Link></li>
+                                                    <li><Link href={'/checkout'} className="text-gray-500 hover:text-blue-600 text-[12px]">Checkout</Link></li>
+                                                    <li><Link href={'/faq'} className="text-gray-500 hover:text-blue-600 text-[12px]">Frequently Questions</Link></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -155,7 +155,7 @@ export default function Header() {
 
 
                                     <li>
-                                        <a href="#" className="block py-2 px-3 text-[13px]  hover:text-[#C09578] border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-#C09578 md:p-0 uppercase " aria-current="page">Contact us</a>
+                                        <Link href={'/contact-us'} className="block py-2 px-3 text-[13px]  hover:text-[#C09578] border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-#C09578 md:p-0 uppercase " aria-current="page">Contact us</Link>
                                     </li>
                                     <li>
 
@@ -292,7 +292,7 @@ export default function Header() {
                                         <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
                                             <ul className="space-y-4" aria-labelledby="mega-menu-dropdown-button">
                                                 <h3 className='font-bold'>Sofa Cum Bed</h3>
-                                                <li><Link href="products" className="text-gray-500 hover:text-blue-600 text-[12px]">Wooden Sofa Cum Bed</Link></li>
+                                                <li><Link href="/products" className="text-gray-500 hover:text-blue-600 text-[12px]">Wooden Sofa Cum Bed</Link></li>
                                             </ul>
                                         </div>
                                         <div className="p-4">

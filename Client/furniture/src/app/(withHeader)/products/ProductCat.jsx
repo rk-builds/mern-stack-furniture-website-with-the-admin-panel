@@ -25,7 +25,8 @@ export default function ProductCat({ parents, setFilters }) {
   }
 
   return (
-    <div className="bg-white border rounded-lg p-5 sticky top-24">
+    // <div className="bg-white border rounded-lg p-5 sticky top-24">
+     <div className="bg-white border rounded-lg p-4 sm:p-5 lg:sticky lg:top-24">
 
       {/* CATEGORY TITLE */}
       <h3 className="text-lg font-semibold mb-4 border-b pb-2">

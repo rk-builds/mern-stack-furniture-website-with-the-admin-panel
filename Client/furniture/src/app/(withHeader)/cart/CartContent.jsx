@@ -161,9 +161,9 @@ export default function CartContent() {
 
     return (
         <>
-            <div className="py-12">
+            <div className="py-12 sm:p-10">
                 <div className="max-w-[1100px] mx-auto overflow-x-auto">
-                    <table className="table-fixed w-full border-collapse border border-gray-300">
+                    <table className="table-fixed w-full border-collapse border table-responsive border-gray-300 mb-5">
                         <thead>
                             <tr className="bg-gray-300">
                                 <th className="w-[12%] text-center py-3">Delete</th>
@@ -222,7 +222,7 @@ export default function CartContent() {
                 <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
 
-                    <div className="bg-white rounded-lg shadow">
+                    <div className="bg-white rounded-lg shadow mb-5">
                         <h3 className="text-sm font-semibold mb-4 bg-black text-white uppercase p-3 text-center">Coupon</h3>
                         <div className='p-6'>
                             <p className="mb-3 text-gray-600">Enter your coupon code if you have one.</p>
@@ -241,7 +241,7 @@ export default function CartContent() {
                         </div>
                     </div>
 
-                    <div className="bg-white rounded-lg shadow">
+                    <div className="bg-white rounded-lg shadow mb-5">
                         <h3 className="text-sm font-semibold mb-4 bg-black text-white uppercase p-3 text-center">Cart  Totals</h3>
                         <div className="space-y-4 p-6">
                             <div className="flex justify-between border-b pb-2">
