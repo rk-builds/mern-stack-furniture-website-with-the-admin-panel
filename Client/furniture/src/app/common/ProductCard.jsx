@@ -82,71 +82,132 @@ export default function ProductCard({ data, imgPath }) {
 
 
 
-    <div className=" border border-gray-200 rounded-lg shadow-sm">
-    
+    // <div className=" border border-gray-200 rounded-lg shadow-sm">
+
+    //   {/* Product Image */}
+    //   <Link href={`/products/${data.slug}`}>
+    //     <img
+    //       className="rounded-t-lg w-full h-[300px] object-cover"
+    //       src={imgpath + data.productImage}
+    //       alt={data.productName}
+    //     />
+    //    </Link>
+
+    //   {/* Product Info */}
+    //   <div className="p-3 text-center">
+
+    //     <h5 className="text-[15px] font-semibold text-gray-800 mb-1">
+    //       {data.productName}
+    //     </h5>
+
+    //     {/* Price section */}
+    //     <div className="mb-2">
+    //       <span className="text-gray-400 line-through text-sm mr-2">
+    //         ₹{data.actualPrice}
+    //       </span>
+    //       <span className="text-[#C09578] font-semibold text-[16px]">
+    //         ₹{data.salePrice}
+    //       </span>
+    //     </div>
+
+
+    //     {/* Buttons */}
+    //     <div className="flex items-center justify-center gap-4 pt-2">
+
+    //       <button
+    //         type="button"
+    //         className="p-2 border border-[#E1E3E1] rounded hover:text-[#C09578]"
+    //       >
+    //         <IoIosHeart className="text-[18px] text-[#C09578]" />
+    //       </button>
+
+    //       {
+    //         isInCart ? (
+
+    //           <button
+    //             type="button"
+    //             className="p-2 border border-[#C09578] bg-red-800 text-white text-[14px]"
+    //             onClick={removeCart}
+    //           >
+    //             Remove From Cart
+    //           </button>
+
+    //         ) : (
+    //           <button
+    //             type="button"
+    //             onClick={() => addCart()}
+    //             className="p-2 border border-[#E1E3E1] hover:border-[#C09578] hover:text-[#C09578] text-[14px] text-gray-500"
+    //           >
+    //             Add to Cart
+    //           </button>
+    //         )
+    //       }
+
+    //     </div>
+    //   </div>
+
+    // </div >
+
+    <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+
       {/* Product Image */}
       <Link href={`/products/${data.slug}`}>
         <img
-          className="rounded-t-lg w-full h-[300px] object-cover"
+          className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover"
           src={imgpath + data.productImage}
           alt={data.productName}
         />
-       </Link>
+      </Link>
 
       {/* Product Info */}
-      <div className="p-3 text-center">
+      <div className="p-3 sm:p-4 text-center">
 
-        <h5 className="text-[15px] font-semibold text-gray-800 mb-1">
+        <h5 className="text-sm sm:text-base md:text-[15px] font-semibold text-gray-800 mb-1 line-clamp-2">
           {data.productName}
         </h5>
 
         {/* Price section */}
         <div className="mb-2">
-          <span className="text-gray-400 line-through text-sm mr-2">
+          <span className="text-gray-400 line-through text-xs sm:text-sm mr-2">
             ₹{data.actualPrice}
           </span>
-          <span className="text-[#C09578] font-semibold text-[16px]">
+          <span className="text-[#C09578] font-semibold text-sm sm:text-base">
             ₹{data.salePrice}
           </span>
         </div>
-      
-     
+
         {/* Buttons */}
-        <div className="flex items-center justify-center gap-4 pt-2">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 pt-2 flex-wrap">
 
           <button
             type="button"
-            className="p-2 border border-[#E1E3E1] rounded hover:text-[#C09578]"
+            className="p-2 border border-[#E1E3E1] rounded hover:text-[#C09578] transition"
           >
-            <IoIosHeart className="text-[18px] text-[#C09578]" />
+            <IoIosHeart className="text-[16px] sm:text-[18px] text-[#C09578]" />
           </button>
 
-          {
-            isInCart ? (
-
-              <button
-                type="button"
-                className="p-2 border border-[#C09578] bg-red-800 text-white text-[14px]"
-                onClick={removeCart}
-              >
-                Remove From Cart
-              </button>
-
-            ) : (
-              <button
-                type="button"
-                onClick={() => addCart()}
-                className="p-2 border border-[#E1E3E1] hover:border-[#C09578] hover:text-[#C09578] text-[14px] text-gray-500"
-              >
-                Add to Cart
-              </button>
-            )
-          }
+          {isInCart ? (
+            <button
+              type="button"
+              className="px-3 py-2 sm:px-4 text-xs sm:text-sm border border-[#C09578] bg-red-800 text-white rounded"
+              onClick={removeCart}
+            >
+              Remove From Cart
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => addCart()}
+              className="px-3 py-2 sm:px-4 text-xs sm:text-sm border border-[#E1E3E1] hover:border-[#C09578] hover:text-[#C09578] text-gray-500 rounded transition"
+            >
+              Add to Cart
+            </button>
+          )}
 
         </div>
       </div>
-    
-    </div >
+
+    </div>
 
   )
 }
