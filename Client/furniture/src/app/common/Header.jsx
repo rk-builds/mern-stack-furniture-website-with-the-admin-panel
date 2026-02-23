@@ -159,11 +159,23 @@ export default function Header() {
                                     </li>
                                     <li>
 
-                                        {/* <div >
-                                            <Link href={'/login'}> Login   </Link> /
+                                        <div>
+                                            {mounted && (
+                                                loginuser ? (
+                                                    <div>
+                                                        <span className="cursor-pointer" onClick={logOutUser}>
+                                                            Logout &nbsp;{loginuser.username}
+                                                        </span>
 
-                                            <Link href={'/Register'}>   Register  </Link>
-                                        </div> */}
+                                                    </div>
+                                                ) : (
+                                                    <div>
+                                                        <Link href="/login">Login</Link> /
+                                                        <Link href="/register">Register</Link>
+                                                    </div>
+                                                )
+                                            )}
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -335,25 +347,7 @@ export default function Header() {
                                     <Link href={'/contact-us'} className="block py-2 px-3 text-[13px]  hover:text-[#C09578] border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-#C09578 md:p-0 uppercase " aria-current="page">Contact us</Link>
                                 </li>
 
-                                <li>
-                                    <div>
-                                        {mounted && (
-                                            loginuser ? (
-                                                <div>
-                                                    <span className="cursor-pointer" onClick={logOutUser}>
-                                                        Logout &nbsp;{loginuser.username}
-                                                    </span>
 
-                                                </div>
-                                            ) : (
-                                                <div>
-                                                    <Link href="/login">Login</Link> /
-                                                    <Link href="/register">Register</Link>
-                                                </div>
-                                            )
-                                        )}
-                                    </div>
-                                </li>
                             </ul>
                         </div>
 
