@@ -1,11 +1,11 @@
 "use client"
+
 import React, { useState } from 'react'
 import Dashboard from './Dashboard';
 import ChangePassword from './ChangePassword';
 import Orders from './Orders';
 import Adress from './Adress';
 import Profile from './Profile';
-
 
 export default function SidebarDashboard() {
 
@@ -27,24 +27,20 @@ export default function SidebarDashboard() {
   };
 
   return (
-    <>
-     
-     
+    <div className="max-w-[1170px] mx-auto bg-white shadow-xl rounded-xl my-5">
 
-       
-        <div className="w-[1170px] mx-auto flex bg-white shadow-2xl rounded-xl my-5">
+      <div className="flex flex-col md:flex-row">
 
-          
-          <div className="w-64  text-white flex flex-col p-6 space-y-2">
+        {/* SIDEBAR */}
+        <div className="md:w-64 w-full bg-white md:border-r border-b md:border-b-0 p-4">
 
-            {/* <h2 className="text-xl font-bold text-[#C09578] mb-4">
-              My Dashboard
-            </h2> */}
+          {/* Mobile Horizontal Scroll */}
+          <div className="flex md:flex-col gap-3 overflow-x-auto md:overflow-visible">
 
             <button
               onClick={() => setActiveTab("dashboard")}
-              className={`px-4 py-2 rounded-md text-left transition-all
-                ${activeTab === "dashboard"
+              className={`whitespace-nowrap px-4 py-2 rounded-md transition-all text-sm
+              ${activeTab === "dashboard"
                   ? "bg-[#C09578] text-black font-semibold"
                   : "bg-black text-white hover:bg-[#C09578] hover:text-black"
                 }`}
@@ -54,8 +50,8 @@ export default function SidebarDashboard() {
 
             <button
               onClick={() => setActiveTab("orders")}
-              className={`px-4 py-2 rounded-md text-left transition-all
-                ${activeTab === "orders"
+              className={`whitespace-nowrap px-4 py-2 rounded-md transition-all text-sm
+              ${activeTab === "orders"
                   ? "bg-[#C09578] text-black font-semibold"
                   : "bg-black text-white hover:bg-[#C09578] hover:text-black"
                 }`}
@@ -65,8 +61,8 @@ export default function SidebarDashboard() {
 
             <button
               onClick={() => setActiveTab("address")}
-              className={`px-4 py-2 rounded-md text-left transition-all
-                ${activeTab === "address"
+              className={`whitespace-nowrap px-4 py-2 rounded-md transition-all text-sm
+              ${activeTab === "address"
                   ? "bg-[#C09578] text-black font-semibold"
                   : "bg-black text-white hover:bg-[#C09578] hover:text-black"
                 }`}
@@ -76,8 +72,8 @@ export default function SidebarDashboard() {
 
             <button
               onClick={() => setActiveTab("profile")}
-              className={`px-4 py-2 rounded-md text-left transition-all
-                ${activeTab === "profile"
+              className={`whitespace-nowrap px-4 py-2 rounded-md transition-all text-sm
+              ${activeTab === "profile"
                   ? "bg-[#C09578] text-black font-semibold"
                   : "bg-black text-white hover:bg-[#C09578] hover:text-black"
                 }`}
@@ -87,8 +83,8 @@ export default function SidebarDashboard() {
 
             <button
               onClick={() => setActiveTab("password")}
-              className={`px-4 py-2 rounded-md text-left transition-all
-                ${activeTab === "password"
+              className={`whitespace-nowrap px-4 py-2 rounded-md transition-all text-sm
+              ${activeTab === "password"
                   ? "bg-[#C09578] text-black font-semibold"
                   : "bg-black text-white hover:bg-[#C09578] hover:text-black"
                 }`}
@@ -97,16 +93,14 @@ export default function SidebarDashboard() {
             </button>
 
           </div>
+        </div>
 
-          {/* CONTENT AREA */}
-          <div className="flex-1 p-6 bg-gray-50 min-h-[400px]">
-            {renderContent()}
-          </div>
+        {/* CONTENT AREA */}
+        <div className="flex-1 p-4 sm:p-6 bg-gray-50 min-h-[400px]">
+          {renderContent()}
+        </div>
 
-       </div>
-    </>
+      </div>
+    </div>
   );
 }
-
-          
-

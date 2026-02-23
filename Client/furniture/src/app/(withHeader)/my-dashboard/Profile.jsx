@@ -22,7 +22,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="w-full p-4">
+    <div className="w-full p-4 sm:px-6">
       <div className="max-w-2xl mx-auto bg-white border rounded-lg shadow-sm p-6">
 
         <h3 className="text-xl font-semibold mb-4">

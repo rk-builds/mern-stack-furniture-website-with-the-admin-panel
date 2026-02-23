@@ -161,8 +161,8 @@ export default function CartContent() {
 
     return (
         <>
-            <div className="py-12 sm:p-10">
-                <div className="max-w-[1100px] mx-auto overflow-x-auto">
+            {/* <div className="py-8 sm:py-12 px-4 sm:px-6 md:px-8">
+                <div className="max-w-[1200px] mx-auto">
                     <table className="table-fixed w-full border-collapse border table-responsive border-gray-300 mb-5">
                         <thead>
                             <tr className="bg-gray-300">
@@ -260,6 +260,173 @@ export default function CartContent() {
                         <div className="mt-6">
                             <Link href={'/checkout'}
                                 className="block text-center bg-[#C09578] text-white font-semibold py-3 rounded transition">
+                                Proceed to Checkout
+                            </Link>
+                        </div>
+                    </div>
+
+                </div>
+            </div> */}
+
+            <div className="py-8 sm:py-12 px-4 sm:px-6 md:px-8">
+                <div className="max-w-[1200px] mx-auto">
+
+                    {/* TABLE WRAPPER FOR MOBILE SCROLL */}
+                    <div className="w-full overflow-x-auto">
+                        <table className="min-w-[700px] w-full border-collapse border border-gray-300 mb-5 text-sm sm:text-base">
+                            <thead>
+                                <tr className="bg-gray-300">
+                                    <th className="text-center py-3 px-2">Delete</th>
+                                    <th className="text-center py-3 px-2">Image</th>
+                                    <th className="text-center py-3 px-2">Product</th>
+                                    <th className="text-center py-3 px-2">Price</th>
+                                    <th className="text-center py-3 px-2">Quantity</th>
+                                    <th className="text-center py-3 px-2">Total</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {cartItems.length > 0 ? (
+                                    cartItems.map((item) => (
+                                        <tr className="border text-center" key={item._id}>
+                                            <td className="py-3 px-2">
+                                                <button onClick={() => deleteFromCart(item._id)}>
+                                                    <TbTrashXFilled className="mx-auto text-red-500" />
+                                                </button>
+                                            </td>
+
+                                            <td className="py-3 px-2">
+                                                <div className="flex justify-center">
+                                                    <img
+                                                        src={imgPath + item.productImg}
+                                                        alt=""
+                                                        className="h-16 w-16 sm:h-20 sm:w-20 object-cover rounded"
+                                                    />
+                                                </div>
+                                            </td>
+
+                                            <td className="py-3 px-2 whitespace-nowrap">
+                                                {item.title}
+                                            </td>
+
+                                            <td className="py-3 px-2">
+                                                Rs.{item.productPrice}
+                                            </td>
+
+                                            <td className="py-3 px-2">
+                                                <input
+                                                    type="number"
+                                                    className="w-14 sm:w-16 border px-2 py-1 rounded text-center"
+                                                    min="1"
+                                                    max="10"
+                                                    value={item.productQty}
+                                                    onChange={(e) =>
+                                                        handleQtyChange(item, e.target.value)
+                                                    }
+                                                />
+                                            </td>
+
+                                            <td className="py-3 px-2 font-medium">
+                                                Rs.{item.productPrice * item.productQty}
+                                            </td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr className="text-center">
+                                        <td colSpan={6} className="py-6">
+                                            No data found
+                                        </td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="text-right mt-4">
+                        <button
+                            type="submit"
+                            className="px-5 py-2 text-white rounded bg-black text-sm uppercase"
+                        >
+                            Update Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            {/* COUPON + TOTAL SECTION */}
+            <div className="py-8 px-4 sm:px-6 md:px-8">
+                <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    {/* COUPON */}
+                    <div className="bg-white rounded-lg shadow">
+                        <h3 className="text-sm font-semibold bg-black text-white uppercase p-3 text-center">
+                            Coupon
+                        </h3>
+
+                        <div className="p-4 sm:p-6">
+                            <p className="mb-3 text-gray-600 text-sm sm:text-base">
+                                Enter your coupon code if you have one.
+                            </p>
+
+                            <form
+                                id="discountform"
+                                noValidate
+                                className="flex flex-col sm:flex-row gap-3"
+                            >
+                                <input
+                                    type="text"
+                                    name="entercode"
+                                    id="entercode"
+                                    placeholder="Coupon code"
+                                    className="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    onChange={(e) =>
+                                        setCouponCode(e.target.value.toUpperCase())
+                                    }
+                                />
+
+                                <button
+                                    type="submit"
+                                    onClick={applyCoupon}
+                                    className="bg-black hover:bg-[#C09578] text-white px-4 py-2 rounded transition"
+                                >
+                                    Apply Coupon
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    {/* CART TOTALS */}
+                    <div className="bg-white rounded-lg shadow">
+                        <h3 className="text-sm font-semibold bg-black text-white uppercase p-3 text-center">
+                            Cart Totals
+                        </h3>
+
+                        <div className="space-y-4 p-4 sm:p-6 text-sm sm:text-base">
+                            <div className="flex justify-between border-b pb-2">
+                                <p>Subtotal</p>
+                                <p className="font-medium">Rs.{subtotal}</p>
+                            </div>
+
+                            <div className="flex justify-between border-b pb-2">
+                                <p>Discount (-)</p>
+                                <p className="font-medium text-red-500">
+                                    Rs. {discount}
+                                </p>
+                            </div>
+
+                            <div className="flex justify-between border-b pb-2">
+                                <p className="font-semibold">Total</p>
+                                <p className="font-semibold text-lg">
+                                    Rs. {total}
+                                </p>
+                            </div>
+
+                            <Link
+                                href={"/checkout"}
+                                className="block text-center bg-[#C09578] text-white font-semibold py-3 rounded transition"
+                            >
                                 Proceed to Checkout
                             </Link>
                         </div>

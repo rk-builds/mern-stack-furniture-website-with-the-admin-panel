@@ -38,13 +38,14 @@ export default function ChangePassword() {
 
   }
   return (
-   
 
-    <div className="w-full p-4">
-      <ToastContainer/>
-      <div className="max-w-md mx-auto bg-white border rounded-lg shadow-sm p-6">
 
-        <h3 className="text-xl font-semibold mb-4">
+    <div className="w-full px-4 sm:px-6 py-6">
+      <ToastContainer />
+
+      <div className="max-w-md w-full mx-auto bg-white border rounded-lg shadow-sm p-5 sm:p-6">
+
+        <h3 className="text-xl font-semibold mb-6 text-center sm:text-left">
           Change Password
         </h3>
 
@@ -72,7 +73,7 @@ export default function ChangePassword() {
               id="currentpassword"
               placeholder="Enter current password"
               className="w-full border rounded-md px-3 py-2 text-sm
-                         focus:ring-1 focus:ring-[#C09578] outline-none"
+                     focus:ring-1 focus:ring-[#C09578] outline-none"
             />
           </div>
 
@@ -90,7 +91,7 @@ export default function ChangePassword() {
               id="newpassword"
               placeholder="Enter new password"
               className="w-full border rounded-md px-3 py-2 text-sm
-                         focus:ring-1 focus:ring-[#C09578] outline-none"
+                     focus:ring-1 focus:ring-[#C09578] outline-none"
             />
           </div>
 
@@ -108,7 +109,7 @@ export default function ChangePassword() {
               id="confirmPassword"
               placeholder="Re-enter new password"
               className="w-full border rounded-md px-3 py-2 text-sm
-                         focus:ring-1 focus:ring-[#C09578] outline-none"
+                     focus:ring-1 focus:ring-[#C09578] outline-none"
             />
           </div>
 
@@ -117,8 +118,8 @@ export default function ChangePassword() {
             <button
               type="submit"
               id="passwordUpdate"
-              className="w-full bg-[#C09578] text-black py-2 rounded-md
-                         font-medium hover:opacity-90 transition"
+              className="w-full bg-[#C09578] text-black py-2.5 rounded-md
+                     font-medium hover:opacity-90 transition"
             >
               Change Password
             </button>
