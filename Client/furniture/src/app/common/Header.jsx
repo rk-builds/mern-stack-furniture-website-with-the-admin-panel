@@ -17,13 +17,13 @@ import { fetchCartData } from '../redux/slice/cartSlice';
 export default function Header() {
     let dispatch = useDispatch()
 
-   
 
-    const cartItems = useSelector(  (state) => state.myCart.cartItems );
-       
+
+    const cartItems = useSelector((state) => state.myCart.cartItems);
+
 
     console.log(cartItems);
-    
+
 
     let loginuser = useSelector((myStore) => myStore.user.user)
     // console.log(loginuser);
@@ -33,9 +33,9 @@ export default function Header() {
     let [isOpen, setIsOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
 
-     useEffect(()=>{
-       dispatch(fetchCartData())
-    },[dispatch])
+    useEffect(() => {
+        dispatch(fetchCartData())
+    }, [dispatch])
 
     let logOutUser = () => {
         dispatch(logout())
@@ -53,7 +53,7 @@ export default function Header() {
         <div>
             {/* offcanvs */}
 
-          <ToastContainer/>
+            <ToastContainer />
 
 
             <div className={`fixed top-0 left-0 w-64 h-screen bg-white shadow-lg z-50 transform transition-transform duration-300 md:hidden sm:block  ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
@@ -188,7 +188,7 @@ export default function Header() {
                                             <span className="cursor-pointer" onClick={logOutUser}>
                                                 Logout &nbsp;{loginuser.username}
                                             </span>
-                                            
+
                                         </div>
                                     ) : (
                                         <div>
@@ -205,7 +205,7 @@ export default function Header() {
                                     :
                                     <div><Link href={'/login'}>Login</Link> &nbsp; /<Link href={'/register'}>Register</Link></div>
                             } */}
-                            
+
                         </div>
                     </div>
                 </div>
@@ -333,6 +333,26 @@ export default function Header() {
 
                                 <li>
                                     <Link href={'/contact-us'} className="block py-2 px-3 text-[13px]  hover:text-[#C09578] border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-#C09578 md:p-0 uppercase " aria-current="page">Contact us</Link>
+                                </li>
+
+                                <li>
+                                    <div>
+                                        {mounted && (
+                                            loginuser ? (
+                                                <div>
+                                                    <span className="cursor-pointer" onClick={logOutUser}>
+                                                        Logout &nbsp;{loginuser.username}
+                                                    </span>
+
+                                                </div>
+                                            ) : (
+                                                <div>
+                                                    <Link href="/login">Login</Link> /
+                                                    <Link href="/register">Register</Link>
+                                                </div>
+                                            )
+                                        )}
+                                    </div>
                                 </li>
                             </ul>
                         </div>
