@@ -46,34 +46,31 @@ export default function HomeBestSelling({ BestSellingData }) {
 
 
   var settings = {
-    dots: true,
+    dots: false,          
     infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: true,         
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
+          slidesToShow: 3
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          dots: false,
+          slidesToShow: 2
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: false,
+          slidesToShow: 1
         }
       }
     ]
@@ -82,7 +79,7 @@ export default function HomeBestSelling({ BestSellingData }) {
 
 
     <section className="max-w-[1170px] mx-auto py-[50px] px-4">
-      <div className="relative py-5 pb-14">
+      <div className="relative py-5 pb-30">
         <h2 className="text-[22px] font-semibold mb-6 text-center">
           Best Selling Products
         </h2>
