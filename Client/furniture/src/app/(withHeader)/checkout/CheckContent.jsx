@@ -87,7 +87,7 @@ export default function CheckContent() {
         if (paymenttype == 1) {
           console.log(finaldata);
         } else {
-          RazorpayOrderOptions = {
+          let RazorpayOrderOptions = {
             key: process.env.KEY,
             amount: finaldata.amount, // Amount in paise
             currency: "INR",
@@ -121,6 +121,11 @@ export default function CheckContent() {
               color: "#F37254",
             },
           };
+
+           console.log(RazorpayOrderOptions);
+          
+          const razorpayInstance = new Razorpay(RazorpayOrderOptions);
+          razorpayInstance.open();
         }
       })
 
