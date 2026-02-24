@@ -84,8 +84,46 @@ export default function CheckContent() {
       })
       .then((apiRes) => apiRes.data)
       .then((finaldata) => {
-        console.log(finaldata)
+        if (paymenttype == 1) {
+          console.log(finaldata);
+        } else {
+          RazorpayOrderOptions = {
+            key: process.env.KEY,
+            amount: finaldata.amount, // Amount in paise
+            currency: "INR",
+            name: "Test Company",
+            description: "Test Transaction",
+            order_id: finaldata.id, // Generate order_id on server
+            handler: (response) => {
+              console.log(response);
+
+              axios
+                .post(`${apiBaseUrl}order/verify-order`, response
+                  , {
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                  },
+                }).then((res)=>res.data)
+                .then((finaldata)=>{
+                   console.log(finaldata)
+
+                   // thank you page redirect
+                })
+
+              alert("Payment Successful!");
+            },
+            prefill: {
+              name: "John Doe",
+              email: "john.doe@example.com",
+              contact: "9999999999",
+            },
+            theme: {
+              color: "#F37254",
+            },
+          };
+        }
       })
+
 
   }
 
@@ -271,7 +309,7 @@ export default function CheckContent() {
           </div>
 
 
-         
+
           <div>
             <h3 className="text-xl font-semibold mb-6">
               Your Order
