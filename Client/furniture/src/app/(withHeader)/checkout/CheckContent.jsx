@@ -3,7 +3,11 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 
+import { useRazorpay } from "react-razorpay";
+
 export default function CheckContent() {
+
+   let { Razorpay } = useRazorpay();
 
   let apiBaseUrl = process.env.NEXT_PUBLIC_APIBASEURL
 
