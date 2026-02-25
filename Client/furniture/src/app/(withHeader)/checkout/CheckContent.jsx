@@ -91,7 +91,8 @@ export default function CheckContent() {
         if (paymenttype == 1) {
           console.log(finaldata);
         } else {
-
+           console.log(process.env.NEXT_PUBLIC_KEY)
+           
           const RazorpayOrderOptions = {
             key: process.env.NEXT_PUBLIC_KEY,
             amount: finaldata.amount, // Amount in paise
