@@ -1,11 +1,12 @@
 const orderModel = require("../../models/orderModel");
-const cartModel = require("../../models/cartModel");
+const { cartModel } = require("../../models/cartModel");
 const Razorpay = require('razorpay');
 var instance = new Razorpay({
     key_id: process.env.KEY,
     key_secret: process.env.SECKEY,
 });
-const crypto = require('crypto')
+const crypto = require('crypto');
+
 
 let saveOrder = async (req, res) => {
     let orderObj = { ...req.body }
