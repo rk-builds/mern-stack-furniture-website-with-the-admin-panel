@@ -39,43 +39,6 @@ app.use('/uploads/test', express.static('uploads/test'));
 app.use('/uploads/slider', express.static('uploads/slider'));
 app.use('/uploads/adminprofile', express.static('uploads/adminProfile'));
 
-app.get("/", (req , res)=>{
-  res.send({
-    status:true ,
-    message : "apin started"
-  })
-})
- 
-
-app.get("/debug-db", async (req, res) => {
-  try {
-    if (mongoose.connection.readyState !== 1) {
-      return res.json({
-        message: "Database not connected",
-        readyState: mongoose.connection.readyState
-      });
-    }
-
-    const dbName = mongoose.connection.name;
-    const host = mongoose.connection.host;
-
-    const collections = await mongoose.connection.db
-      .listCollections()
-      .toArray();
-
-    res.json({
-      databaseName: dbName,
-      host: host,
-      collections: collections.map(c => c.name)
-    });
-
-  } catch (error) {
-    res.status(500).json({
-      message: "Debug Error",
-      error: error.message
-    });
-  }
-});
 
 console.log("Connected DB:", mongoose.connection.name);
 
@@ -94,7 +57,7 @@ mongoose.connect(process.env.DBCONECTIONURL)
     if (data.length === 0) {
       await adminAuthModel.create({
         name: 'admin',
-        email: 'kothariruchi95@gmail.com',
+        email: 'admin@gmail.com',
         password: 'admin@123',
         phone: '8888444555'
       });
