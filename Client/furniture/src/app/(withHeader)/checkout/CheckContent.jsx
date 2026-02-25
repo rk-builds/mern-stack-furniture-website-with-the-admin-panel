@@ -121,6 +121,7 @@ export default function CheckContent() {
                    // thank you page redirect
 
                    dispatch(fetchCartData())
+                   dispatch(clearDiscount())
                 })
 
               alert("Payment Successful!");
