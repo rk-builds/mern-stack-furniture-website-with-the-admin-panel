@@ -93,11 +93,11 @@ export default function CheckContent() {
         } else {
 
           const RazorpayOrderOptions = {
-            key: process.env.KEY,
+            key: process.env.NEXT_PUBLIC_KEY,
             amount: finaldata.amount, // Amount in paise
             currency: "INR",
-            name: "Test Company",
-            description: "Test Transaction",
+            name: "monsta Company",
+            description: "monsta Transaction",
             order_id: finaldata.id, // Generate order_id on server
             handler: (response) => {
               console.log(response);
