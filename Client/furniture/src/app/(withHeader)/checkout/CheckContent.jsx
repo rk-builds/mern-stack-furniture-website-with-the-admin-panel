@@ -92,8 +92,10 @@ export default function CheckContent() {
       .then((apiRes) => apiRes.data)
       .then((finaldata) => {
         if (paymenttype == 1) {
-          console.log(finaldata);
+          console.log("FULL BACKEND RESPONSE:", finaldata);
+
         } else {
+          console.log("FULL BACKEND RESPONSE:", finaldata);
            console.log(process.env.NEXT_PUBLIC_KEY)
            
           const RazorpayOrderOptions = {
