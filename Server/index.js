@@ -94,7 +94,7 @@ mongoose.connect(process.env.DBCONECTIONURL)
     if (data.length === 0) {
       await adminAuthModel.create({
         name: 'admin',
-        email: 'kothariruchi95@gmail.com',
+        email: 'admin@gmail.com',
         password: 'admin@123',
         phone: '8888444555'
       });
