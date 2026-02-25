@@ -19,7 +19,7 @@ let saveOrder = async (req, res) => {
         orData['userId'] = id
         let order = await orderModel(orData)
         await order.save()
-        res.send("hello")
+        res.send(orData)
     }
     else {
         //Online payment
@@ -51,7 +51,7 @@ let saveOrder = async (req, res) => {
         )
         console.log(ordersRes);
 
-        res.send(updateRes)
+        res.send(ordersRes)
 
 
     }
@@ -91,7 +91,7 @@ let verifyOrder = async (req, res) => {
             {
                 status:true,
                 msg:'order verified'
-                
+
             }
         )
 
