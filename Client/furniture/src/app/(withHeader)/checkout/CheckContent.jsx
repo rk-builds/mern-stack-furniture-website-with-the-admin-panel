@@ -1,13 +1,16 @@
 'use client'
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useRazorpay } from "react-razorpay";
+import { fetchCartData } from '@/app/redux/slice/cartSlice';
 
 export default function CheckContent() {
 
    let { Razorpay } = useRazorpay();
+
+   let dispatch=useDispatch()
 
   let apiBaseUrl = process.env.NEXT_PUBLIC_APIBASEURL
 
@@ -114,6 +117,8 @@ export default function CheckContent() {
                    console.log(finaldata)
 
                    // thank you page redirect
+
+                   dispatch(fetchCartData())
                 })
 
               alert("Payment Successful!");
